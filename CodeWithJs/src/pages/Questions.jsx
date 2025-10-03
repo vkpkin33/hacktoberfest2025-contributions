@@ -5,18 +5,59 @@ import { Link } from 'react-router-dom';
 import { BsLightbulb, BsSearch, BsArrowLeft } from 'react-icons/bs';
 import QuestionAccordion from '../components/QuestionAccordion';
 import basicQuestions from '../data/basicQuestions.json';
+import intermediateQuestions from '../data/intermediateQuestions.json';
+import interviewQuestions from '../data/interviewQuestions.json';
+import pseudoCodeQuestions from '../data/pseudoCodeQuestions.json';
+import advancedQuestions from '../data/advancedQuestions.json';
 
-const BasicQuestions = () => {
+const Questions = (props) => {
   const theme = useSelector((state) => state.theme.mode);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const questionsPerPage = 10;
 
   // Filter questions based on search term
-  const filteredQuestions = basicQuestions.filter(question =>
-    question.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    question.answer.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  let filteredQuestions = [];
+  if(props.mode == "basic")
+  {
+      filteredQuestions = basicQuestions.filter(question =>
+      question.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      question.answer.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+  else
+  if(props.mode == "intermediate")
+  {
+    filteredQuestions = intermediateQuestions.filter(question =>
+      question.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      question.answer.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+  else
+  if(props.mode == "pseudo")
+  {
+    filteredQuestions = pseudoCodeQuestions.filter(question =>
+      question.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      question.answer.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+  else
+  if(props.mode == "interview")
+  {
+    filteredQuestions = interviewQuestions.filter(question =>
+      question.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      question.answer.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+  else
+  if(props.mode == "advanced")
+  {
+    filteredQuestions = advancedQuestions.filter(question =>
+      question.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      question.answer.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+  
 
   // Pagination logic
   const indexOfLastQuestion = currentPage * questionsPerPage;
@@ -142,7 +183,7 @@ const BasicQuestions = () => {
                   if (pageNum <= totalPages && pageNum >= 1) {
                     return (
                       <Pagination.Item
-                        key={pageNum}
+                        key={index}
                         active={pageNum === currentPage}
                         onClick={() => handlePageChange(pageNum)}
                       >
@@ -199,4 +240,4 @@ const BasicQuestions = () => {
   );
 };
 
-export default BasicQuestions;
+export default Questions;

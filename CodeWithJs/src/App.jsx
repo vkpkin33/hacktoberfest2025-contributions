@@ -9,7 +9,7 @@ import QuestionAccordion from './components/QuestionAccordion';
 import Footer from './components/Footer';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import BasicQuestions from './pages/BasicQuestions';
+import Questions from './pages/Questions';
 
 // Import question data
 import basicQuestions from './data/basicQuestions.json';
@@ -231,7 +231,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/basic" element={<BasicQuestions />} />
+        <Route path="/basic" element={<Questions mode="basic"/>} />
+        <Route path="/intermediate" element={<Questions mode="intermediate" />} />
+        <Route path="/advanced" element={<Questions mode="advanced" />} />
+        <Route path="/pseudo" element={<Questions mode="pseudo" />} />
+        <Route path="/interview" element={<Questions mode="interview" />} />
         {/* Add other category routes here later */}
       </Routes>
       
