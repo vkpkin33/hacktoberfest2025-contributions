@@ -231,11 +231,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/basic" element={<Questions mode="basic"/>} />
-        <Route path="/intermediate" element={<Questions mode="intermediate" />} />
-        <Route path="/advanced" element={<Questions mode="advanced" />} />
-        <Route path="/pseudo" element={<Questions mode="pseudo" />} />
-        <Route path="/interview" element={<Questions mode="interview" />} />
+        <Route path="/basic" element={<Questions mode="Basic"/>} />
+        <Route path="/intermediate" element={<Questions mode="Intermediate" />} />
+        <Route path="/advanced" element={<Questions mode="Advanced" />} />
+        <Route path="/pseudo" element={<Questions mode="Pseudo" />} />
+        <Route path="/interview" element={<Questions mode="Interview" />} />
         {/* Add other category routes here later */}
       </Routes>
       

@@ -18,7 +18,7 @@ const Questions = (props) => {
 
   // Filter questions based on search term
   let filteredQuestions = [];
-  if(props.mode == "basic")
+  if(props.mode === "Basic")
   {
       filteredQuestions = basicQuestions.filter(question =>
       question.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -26,7 +26,7 @@ const Questions = (props) => {
     );
   }
   else
-  if(props.mode == "intermediate")
+  if(props.mode === "Intermediate")
   {
     filteredQuestions = intermediateQuestions.filter(question =>
       question.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -34,7 +34,7 @@ const Questions = (props) => {
     );
   }
   else
-  if(props.mode == "pseudo")
+  if(props.mode === "Pseudo")
   {
     filteredQuestions = pseudoCodeQuestions.filter(question =>
       question.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -42,7 +42,7 @@ const Questions = (props) => {
     );
   }
   else
-  if(props.mode == "interview")
+  if(props.mode === "Interview")
   {
     filteredQuestions = interviewQuestions.filter(question =>
       question.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -50,7 +50,7 @@ const Questions = (props) => {
     );
   }
   else
-  if(props.mode == "advanced")
+  if(props.mode === "Advanced")
   {
     filteredQuestions = advancedQuestions.filter(question =>
       question.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -88,7 +88,7 @@ const Questions = (props) => {
               <BsLightbulb className="me-3 fs-1 text-success" />
               <div>
                 <h1 className={`mb-1 ${theme === 'dark' ? 'text-light' : 'text-dark'}`}>
-                  Basic JavaScript Questions
+                {props.mode} JavaScript Questions
                 </h1>
                 <Badge bg="success" className="fs-6">
                   {filteredQuestions.length} Questions
