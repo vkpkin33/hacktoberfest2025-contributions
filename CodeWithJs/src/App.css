@@ -569,3 +569,22 @@ pre::before {
   transition: all 0.3s ease;
 }
 
+
+/* add scrollbar here */
+.answer-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.answer-content::-webkit-scrollbar-thumb {
+  background-color: #00f181; 
+  border-radius: 10px;
+}
+
+.answer-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+
+.bg-dark .answer-content::-webkit-scrollbar-thumb {
+  background-color: #626b61;
+}
