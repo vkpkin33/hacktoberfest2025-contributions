@@ -31,7 +31,8 @@ function AuthContextProvider({children}) {
             return {status: response.status, message: response.response.data.message};
           }
         } catch (error) {
-          return {status: error.status, message: error.response.data.message};
+          console.log(error)
+          return {status: error.status, message: error.response ? error.response.data.message : error.message};
         }
     }
 
@@ -56,7 +57,7 @@ function AuthContextProvider({children}) {
         }
       } catch (error) {
         console.log(error);
-        return {status: error.status, message: error.response.data.message};
+        return {status: error.status, message: error.response ? error.response.data.message : error.message};
       }
     }
 
