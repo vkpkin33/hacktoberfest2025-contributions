@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navbar, Nav, Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -10,6 +10,7 @@ import {
   BsBoxArrowInRight,
 } from "react-icons/bs";
 import { toggleTheme } from "../store/themeSlice";
+import AuthContext from "../Context/AuthContext.js";
 
 const NavigationBar = () => {
   const theme = useSelector((state) => state.theme.mode);
@@ -18,6 +19,8 @@ const NavigationBar = () => {
   const handleThemeToggle = () => {
     dispatch(toggleTheme());
   };
+
+  const {token, handleLogout} = useContext(AuthContext)
 
   return (
     <Navbar
@@ -109,7 +112,10 @@ const NavigationBar = () => {
 
             {/* Auth Buttons */}
             <div className="d-flex gap-2">
-              <Button
+              
+              {!token ?
+              <>
+                <Button
                 as={Link}
                 to="/signin"
                 variant={theme === "dark" ? "outline-light" : "outline-primary"}
@@ -130,6 +136,19 @@ const NavigationBar = () => {
                 <BsBoxArrowInRight className="me-1" />
                 Sign Up
               </Button>
+              </>:
+
+              <Button
+                as={Link}
+                onClick={handleLogout}
+                variant="outline-danger"
+                size="sm"
+                className="d-flex align-items-center text-decoration-none"
+              >
+                <BsPerson className="me-1" />
+                LogOut
+              </Button>
+              }
             </div>
           </Nav>
         </Navbar.Collapse>
