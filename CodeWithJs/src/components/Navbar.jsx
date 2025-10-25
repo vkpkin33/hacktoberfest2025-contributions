@@ -105,7 +105,7 @@
 
 //           {/* Right Side Buttons */}
 //           <Nav className="d-flex align-items-center">
-
+            
 
 //             {/* Auth Buttons */}
 //             <div className="d-flex gap-2">
@@ -165,7 +165,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Navbar, Nav, Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BsFillSunFill,
   BsFillMoonFill,
@@ -183,8 +183,6 @@ const NavigationBar = () => {
     dispatch(toggleTheme());
   };
 
-  const { token, handleLogout } = useContext(AuthContext)
-
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
@@ -195,8 +193,9 @@ const NavigationBar = () => {
     <Navbar
       expand="lg"
       fixed="top"
-      className={`shadow-sm navbar-custom ${theme} ${scrolled ? "navbar-scrolled" : ""
-        }`}
+      className={`shadow-sm navbar-custom ${theme} ${
+        scrolled ? "navbar-scrolled" : ""
+      }`}
     >
       <Container>
         {/* Logo Section */}
@@ -229,36 +228,21 @@ const NavigationBar = () => {
 
           {/* Right Side Buttons */}
           <Nav className="d-flex align-items-center gap-2">
-            {!token ?
-              <>
-                <Button as={Link} to="/signin" className="btn-signin">
-                  Sign In
-                </Button>
+            <Button as={Link} to="/signin" className="btn-signin">
+              Sign In
+            </Button>
 
-                <Button as={Link} to="/signup" className="btn-signup">
-                  Sign Up
-                </Button>
-
-              </> :
-
-              <Button
-                as={Link}
-                onClick={handleLogout}
-                variant="outline-danger"
-                size="sm"
-                className="d-flex align-items-center text-decoration-none"
-              >
-                {/* <BsPerson className="me-1" /> */}
-                LogOut
-              </Button>
-            }
+            <Button as={Link} to="/signup" className="btn-signup">
+              Sign Up
+            </Button>
 
             <Button
               variant="link"
               size="sm"
               onClick={handleThemeToggle}
-              className={`theme-toggle-btn ${theme === "dark" ? "dark-mode" : "light-mode"
-                }`}
+              className={`theme-toggle-btn ${
+                theme === "dark" ? "dark-mode" : "light-mode"
+              }`}
             >
               {theme === "dark" ? (
                 <BsFillSunFill className="fs-5" />

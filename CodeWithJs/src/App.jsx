@@ -9,7 +9,11 @@ import QuestionAccordion from './components/QuestionAccordion';
 import Footer from './components/Footer';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
-import Questions from './pages/Questions';
+import BasicQuestions from './pages/BasicQuestions';
+import AdvancedQuestions from './pages/AdvancedQuestion';
+import IntermediateQuestion from './pages/IntermediateQuestion';
+import InterviewQuestion from './pages/InterviewQuestion';
+import PseudoCodes from './pages/PseudoCodes';
 
 // Import question data
 import basicQuestions from './data/basicQuestions.json';
@@ -231,11 +235,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/basic" element={<Questions mode="Basic"/>} />
-        <Route path="/intermediate" element={<Questions mode="Intermediate" />} />
-        <Route path="/advanced" element={<Questions mode="Advanced" />} />
-        <Route path="/pseudo" element={<Questions mode="Pseudo" />} />
-        <Route path="/interview" element={<Questions mode="Interview" />} />
+        <Route path="/basic" element={<BasicQuestions />} />
+        <Route path="/advanced" element={<AdvancedQuestions />} />
+        <Route path="/intermediate" element={<IntermediateQuestion/>} />
+        <Route path="/interview" element={<InterviewQuestion/>} />
+        <Route path="/pseudo" element={<PseudoCodes/>} />
         {/* Add other category routes here later */}
       </Routes>
       
