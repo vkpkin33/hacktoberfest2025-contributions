@@ -472,8 +472,10 @@ pre::before {
   }
 }
 
+/* End of App.css */
 
 
+/* 🌙 General Navbar Styles */
 .navbar-custom {
   transition: background-color 0.4s ease, box-shadow 0.4s ease;
   background: transparent !important;
@@ -492,12 +494,12 @@ pre::before {
   backdrop-filter: blur(8px);
 }
 
-
+/* 🚫 Remove all underlines */
 .navbar-custom a {
   text-decoration: none !important;
 }
 
-
+/* ✨ Logo */
 .logo-icon {
   background: linear-gradient(135deg, #667eea, #764ba2);
   width: 35px;
@@ -514,7 +516,7 @@ pre::before {
   letter-spacing: -0.5px;
 }
 
-/* 🧭 Nav Links */
+
 .nav-link-custom {
   font-weight: 500;
   margin: 0 8px;
@@ -533,7 +535,6 @@ pre::before {
   color: #5b44f0 !important;
 }
 
-
 .btn-signin,
 .btn-signup {
   border: none;
@@ -546,12 +547,11 @@ pre::before {
 }
 
 .btn-signin {
-  background: linear-gradient(135deg, #2e51de, #8b09e2);
+  background: linear-gradient(135deg, #1f44da, #830bd3);
 }
 
 .btn-signup {
-  background: linear-gradient(135deg, #2b54f9, #8d0ee2);
-
+ background: linear-gradient(135deg, #2f54e7, #816891);
 }
 
 .btn-signin:hover,
@@ -568,3 +568,4 @@ pre::before {
   border-radius: 8px; 
   transition: all 0.3s ease;
 }
+

@@ -1,14 +1,10 @@
-// import React from "react";
 // import { useSelector, useDispatch } from "react-redux";
 // import { Navbar, Nav, Button, Container } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 // import {
 //   BsFillSunFill,
 //   BsFillMoonFill,
-//   BsCode,
-//   BsPerson,
-//   BsBoxArrowInRight,
-// } from "react-icons/bs";
+//   BsCode,} from "react-icons/bs";
 // import { toggleTheme } from "../store/themeSlice";
 
 // const NavigationBar = () => {
@@ -25,32 +21,47 @@
 //       variant={theme === "dark" ? "dark" : "light"}
 //       expand="lg"
 //       fixed="top"
-//       className="shadow-sm"
+//       className={`shadow-sm ${theme === "light" ? "bg-white" : ""}`}
+//       style={{
+//         backgroundColor: theme === "light" ? "#5e5e5eff" : "",
+//         borderBottom: theme === "light" ? "1px solid #eaeaea" : "none",
+//       }}
 //     >
 //       <Container>
 //         {/* Logo Section */}
-//         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center fw-bold" style={{ textDecoration: 'none' }}>
+//         <Navbar.Brand
+//           as={Link}
+//           to="/"
+//           className="d-flex align-items-center fw-bold"
+//           style={{
+//             textDecoration: "none",
+//             userSelect: "none",
+//           }}
+//         >
 //           <div className="d-flex align-items-center">
-//             <div 
+//             <div
 //               className="d-flex align-items-center justify-content-center me-2 rounded"
 //               style={{
-//                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-//                 width: '35px',
-//                 height: '35px',
-//                 minWidth: '35px'
+//                 background:
+//                   "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+//                 width: "35px",
+//                 height: "35px",
+//                 minWidth: "35px",
+//                 boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
 //               }}
 //             >
-//               <BsCode className="text-white" style={{ fontSize: '18px' }} />
+//               <BsCode className="text-white" style={{ fontSize: "18px" }} />
 //             </div>
-//             <span 
+//             <span
 //               style={{
-//                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-//                 WebkitBackgroundClip: 'text',
-//                 WebkitTextFillColor: 'transparent',
-//                 backgroundClip: 'text',
-//                 fontSize: '1.5rem',
-//                 fontWeight: '700',
-//                 letterSpacing: '-0.5px'
+//                 background:
+//                   "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+//                 WebkitBackgroundClip: "text",
+//                 WebkitTextFillColor: "transparent",
+//                 fontSize: "1.5rem",
+//                 fontWeight: "700",
+//                 letterSpacing: "-0.5px",
+//                 textDecoration: "none",
 //               }}
 //             >
 //               CodeWithJs
@@ -64,48 +75,37 @@
 //         <Navbar.Collapse id="navbar-nav">
 //           {/* Navigation Links */}
 //           <Nav className="me-auto">
-//             <Nav.Link as={Link} to="/basic" className="mx-2">
-//               Basic
-//             </Nav.Link>
-//             <Nav.Link as={Link} to="/intermediate" className="mx-2">
-//               Intermediate
-//             </Nav.Link>
-//             <Nav.Link as={Link} to="/advanced" className="mx-2">
-//               Advanced
-//             </Nav.Link>
-//             <Nav.Link as={Link} to="/pseudo" className="mx-2">
-//               Pseudo Code
-//             </Nav.Link>
-//             <Nav.Link as={Link} to="/interview" className="mx-2">
-//               Interview
-//             </Nav.Link>
+//             {["Basic", "Intermediate", "Advanced", "Pseudo Code", "Interview"].map(
+//               (item, i) => (
+//                 <Nav.Link
+//                   key={i}
+//                   as={Link}
+//                   to={`/${item.toLowerCase().replace(" ", "")}`}
+//                   className="mx-2 fw-semibold"
+//                   style={{
+//                     textDecoration: "none",
+//                     color:
+//                       theme === "dark" ? "#eaeaea" : "#333",
+//                     transition: "color 0.3s",
+//                   }}
+//                   onMouseEnter={(e) =>
+//                     (e.target.style.color =
+//                       theme === "dark" ? "#fff" : "#001989ff")
+//                   }
+//                   onMouseLeave={(e) =>
+//                     (e.target.style.color =
+//                       theme === "dark" ? "#eaeaea" : "#333")
+//                   }
+//                 >
+//                   {item}
+//                 </Nav.Link>
+//               )
+//             )}
 //           </Nav>
 
 //           {/* Right Side Buttons */}
 //           <Nav className="d-flex align-items-center">
-//             {/* Dark Mode Toggle */}
-//             <Button
-//               variant="link"
-//               size="sm"
-//               onClick={handleThemeToggle}
-//               className={`me-3 d-flex align-items-center justify-content-center p-2 rounded-circle ${theme === 'dark' ? 'text-warning' : 'text-dark'}`}
-//               style={{ 
-//                 minWidth: '40px', 
-//                 height: '40px',
-//                 border: 'none',
-//                 outline: 'none',
-//                 boxShadow: 'none',
-//                 backgroundColor: theme === 'dark' ? 'rgba(255, 193, 7, 0.1)' : 'rgba(33, 37, 41, 0.1)',
-//                 transition: 'all 0.2s ease'
-//               }}
-//               onFocus={(e) => e.target.style.boxShadow = 'none'}
-//             >
-//               {theme === 'dark' ? (
-//                 <BsFillSunFill className="fs-5" />
-//               ) : (
-//                 <BsFillMoonFill className="fs-5" />
-//               )}
-//             </Button>
+            
 
 //             {/* Auth Buttons */}
 //             <div className="d-flex gap-2">
@@ -116,7 +116,6 @@
 //                 size="sm"
 //                 className="d-flex align-items-center text-decoration-none"
 //               >
-//                 <BsPerson className="me-1" />
 //                 Sign In
 //               </Button>
 
@@ -127,9 +126,33 @@
 //                 size="sm"
 //                 className="d-flex align-items-center text-decoration-none"
 //               >
-//                 <BsBoxArrowInRight className="me-1" />
 //                 Sign Up
 //               </Button>
+
+//                 <Button
+//               variant="link"
+//               size="sm"
+//               onClick={handleThemeToggle}
+//               className={`me-3 d-flex align-items-center justify-content-center p-2 rounded-circle ${
+//                 theme === "dark" ? "text-warning" : "text-dark"
+//               }`}
+//               style={{
+//                 minWidth: "40px",
+//                 height: "40px",
+//                 border: "none",
+//                 backgroundColor:
+//                   theme === "dark"
+//                     ? "rgba(255, 193, 7, 0.15)"
+//                     : "rgba(33, 37, 41, 0.05)",
+//                 transition: "all 0.2s ease",
+//               }}
+//             >
+//               {theme === "dark" ? (
+//                 <BsFillSunFill className="fs-5" />
+//               ) : (
+//                 <BsFillMoonFill className="fs-5" />
+//               )}
+//             </Button>
 //             </div>
 //           </Nav>
 //         </Navbar.Collapse>
@@ -139,8 +162,6 @@
 // };
 
 // export default NavigationBar;
-
-
 import { useSelector, useDispatch } from "react-redux";
 import { Navbar, Nav, Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -151,6 +172,7 @@ import {
   BsCode,
 } from "react-icons/bs";
 import { toggleTheme } from "../store/themeSlice";
+import AuthContext from "../Context/AuthContext.js";
 
 const NavigationBar = () => {
   const theme = useSelector((state) => state.theme.mode);
