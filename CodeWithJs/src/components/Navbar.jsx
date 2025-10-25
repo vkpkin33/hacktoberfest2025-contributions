@@ -172,6 +172,7 @@ import {
   BsCode,
 } from "react-icons/bs";
 import { toggleTheme } from "../store/themeSlice";
+import AuthContext from "../Context/AuthContext.js";
 
 const NavigationBar = () => {
   const theme = useSelector((state) => state.theme.mode);
